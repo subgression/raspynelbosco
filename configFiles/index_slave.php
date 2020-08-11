@@ -6,16 +6,10 @@
   include("Riproduttore.php");
   $riproduttore = new Riproduttore();
 
-  $slaves = array();
-  array_push($slaves, "192.168.2.2");
-  array_push($slaves, "192.168.2.3");
-  array_push($slaves, "192.168.2.4");
-  array_push($slaves, "192.168.2.5");
-
   if (isset($_GET['user'])) {
     $user = $_GET['user'];
     if ($riproduttore->checkTracciaInRiproduzione()) {
-      $riproduttore->setTracceVLC($user, $slaves);
+      $riproduttore->setTracciaVLC($user);
     }
     else {
       echo "Una traccia è già in riproduzione!!";
@@ -24,4 +18,3 @@
   }
 
 ?>
-
